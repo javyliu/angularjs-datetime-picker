@@ -60,28 +60,35 @@
       datetimePickerEl = $compile(div)(options.scope)[0];
       datetimePickerEl.triggerEl = options.triggerEl;
 
-      $document[0].body.appendChild(datetimePickerEl);
+      //console.log(triggerEl,typeof triggerEl);
+      var parEl = triggerEl.parentElement;
+      parEl.appendChild(datetimePickerEl);
+
+      var triggerStyle = window.getComputedStyle(triggerEl)
+      datetimePickerEl.style.position='absolute';
+      //datetimePickerEl.style.top = (parEl.clientHeight) + 'px';
+      //$document[0].body.appendChild(datetimePickerEl);
 
       //show datetimePicker below triggerEl
-      var bcr = triggerEl.getBoundingClientRect();
+      //var bcr = triggerEl.getBoundingClientRect();
 
 
       options.scope.$apply();
 
-      var datePickerElBcr = datetimePickerEl.getBoundingClientRect();
+      //var datePickerElBcr = datetimePickerEl.getBoundingClientRect();
 
-      datetimePickerEl.style.position='absolute';
-      if(bcr.width > datePickerElBcr.width){
-        datetimePickerEl.style.left= (bcr.left + bcr.width - datePickerElBcr.width + window.scrollX) + 'px';
-      } else {
-        datetimePickerEl.style.left= (bcr.left + window.scrollX) + 'px';
-      }
+      //datetimePickerEl.style.top = triggerStyle.marginBottom;
+      //if(bcr.width > datePickerElBcr.width){
+      //  datetimePickerEl.style.left= (bcr.left + bcr.width - datePickerElBcr.width + window.scrollX) + 'px';
+      //} else {
+      //  datetimePickerEl.style.left= (bcr.left + window.scrollX) + 'px';
+      //}
 
-      if (bcr.top < 300 || window.innerHeight - bcr.bottom > 300) {
-        datetimePickerEl.style.top = (bcr.bottom + window.scrollY) + 'px';
-      } else {
-        datetimePickerEl.style.top = (bcr.top - datePickerElBcr.height + window.scrollY) + 'px';
-      }
+      //if (bcr.top < 300 || window.innerHeight - bcr.bottom > 300) {
+      //  datetimePickerEl.style.top = (bcr.bottom + window.scrollY) + 'px';
+      //} else {
+      //  datetimePickerEl.style.top = (bcr.top - datePickerElBcr.height + window.scrollY) + 'px';
+      //}
 
       $document[0].body.addEventListener('click', this.closeDatetimePicker);
     };
@@ -127,9 +134,8 @@
     '    <div class="adp-day" ng-show="mv.trailingDays.length < 7" ng-repeat="day in mv.trailingDays">{{::day}}</div>',
     '  </div>',
     '  <div class="adp-days" id="adp-time"> ',
-    '    <label class="timeLabel">Time:</label> <span class="timeValue">{{("0"+inputHour).slice(-2)}} : {{("0"+inputMinute).slice(-2)}}</span><br/>',
-    '    <label class="hourLabel">Hour:</label> <input class="hourInput" type="range" min="0" max="23" ng-model="inputHour" ng-change="updateNgModel()" />',
-    '    <label class="minutesLabel">Min:</label> <input class="minutesInput" type="range" min="0" max="59" ng-model="inputMinute"  ng-change="updateNgModel()"/> ',
+    '    <div class="grid-block"><div class="grid-content small-2"><label class="hourLabel">时:</label></div><div class="grid-content small-10"><input class="hourInput" type="range" min="0" max="23" ng-model="inputHour" ng-change="updateNgModel()" /></div></div>',
+    '    <div class="grid-block"><div class="grid-content small-2"><label class="minutesLabel">分:</label></div><div class="grid-content small-10"><input class="minutesInput" type="range" min="0" max="59" ng-model="inputMinute"  ng-change="updateNgModel()"/></div></div> ',
     '  </div> ',
     '</div>'].join("\n");
 
