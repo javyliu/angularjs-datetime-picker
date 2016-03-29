@@ -2,9 +2,9 @@
   "name": "angularjs-datetime-picker",
   "main": "angularjs-datetime-picker.js",
   "version": "0.1.20",
-  "homepage": "https://github.com/kineticsocial/angularjs-datetime-picker",
+  "homepage": "https://github.com/javyliu/angularjs-datetime-picker",
   "authors": [
-    "Allen Kim <allen.kim@kineticsocial.com>"
+    "javy_liu <javy_liu@163.com>"
   ],
   "description": "Datepicker/Datetime picker for your INPUT tag",
   "keywords": [
