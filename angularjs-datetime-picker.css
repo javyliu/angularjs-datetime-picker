@@ -8,7 +8,7 @@
 .angularjs-datetime-picker > .adp-month {
   text-align: center;
   line-height: 22px;
-  padding: 10px;
+  padding: 4px;
   background: #fcfcfc;
   text-transform: uppercase;
   font-weight: bold;
@@ -35,15 +35,14 @@
 }
 .angularjs-datetime-picker > .adp-days {
   width: 210px; /* 30 x 7 */
-  margin: 10px;
+  margin: 0 10px;
   text-align: center;
 }
 .angularjs-datetime-picker > .adp-days > .adp-day-of-week, .angularjs-datetime-picker > .adp-days > .adp-day {
   box-sizing: border-box;
-  -moz-box-sizing: border-box;
   border: 1px solid transparent;
   width: 30px;
-  line-height: 28px;
+  line-height: 20px;
   float: left;
 }
 .angularjs-datetime-picker > .adp-days > .adp-day-of-week {
@@ -69,6 +68,20 @@
   height: 0;
 }
 
+.angularjs-datetime-picker{
+  top: 3.7rem;
+  z-index: 100;
+  .grid-block{margin-left:0;margin-right:0;}
+  .grid-content{
+    padding: 3px 0;
+  }
+  .timeLabel {
+    display: none;
+  }
+  .timeValue{
+    display: none;
+  }
+}
 .angularjs-datetime-picker input[type=range] {
-  width: 150px;
+  //width: 150px;
 }
